@@ -8,7 +8,7 @@ import * as Types from "./api.types"
  */
 export class Api {
   /**
-   * The underlying apisauce instance which performs the requests.
+   * The underlying apiSauce instance which performs the requests.
    */
   apisauce: ApisauceInstance
 
@@ -34,7 +34,7 @@ export class Api {
    * Be as quick as possible in here.
    */
   setup() {
-    // construct the apisauce instance
+    // construct the apiSauce instance
     this.apisauce = create({
       baseURL: this.config.url,
       timeout: this.config.timeout,

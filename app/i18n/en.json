@@ -18,6 +18,16 @@
     "tagLine": "Congratulations, you’ve got a very advanced React Native app template here.  Take advantage of this boilerplate!",
     "reactotron": "Demo Reactotron"
   },
+  "loginScreen": {
+    "header": "Login",
+    "register": "Don't have an account? Register Now",
+    "buttonHint": "LOGIN"
+  },
+  "registerScreen": {
+    "header": "Register",
+    "toLogin": "Already have an account? Login Now",
+    "buttonHint": "REGISTER"
+  },
   "storybook": {
     "placeholder": "Placeholder",
     "field": "Field"

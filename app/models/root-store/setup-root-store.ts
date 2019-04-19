@@ -3,7 +3,7 @@ import { RootStoreModel, RootStore } from "./root-store"
 import { Environment } from "../environment"
 import * as storage from "../../utils/storage"
 import { Reactotron } from "../../services/reactotron"
-import { Api } from "../../services/api"
+import { Api } from "../../services/croissant"
 
 /**
  * The key we'll be saving our state as within async storage.

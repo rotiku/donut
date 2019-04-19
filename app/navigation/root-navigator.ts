@@ -1,9 +1,9 @@
 import { createStackNavigator } from "react-navigation"
-import { ExampleNavigator } from "./example-navigator"
+import { AuthNavigator } from "./auth-navigator"
 
 export const RootNavigator = createStackNavigator(
   {
-    exampleStack: { screen: ExampleNavigator },
+    authStack: { screen: AuthNavigator },
   },
   {
     headerMode: "none",
