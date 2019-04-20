@@ -56,6 +56,19 @@ export const AuthStoreModel = types
         self.setStatus("error")
       }
     }),
+    register: flow(function*() {
+      self.setStatus("pending")
+      try {
+        const result = yield self.environment.api.userApi.createUser(self.email, self.password)
+        if (result.kind === "ok") {
+          self.setStatus("success")
+        } else {
+          self.setStatus("error")
+        }
+      } catch {
+        self.setStatus("error")
+      }
+    })
   }))
 
   /**

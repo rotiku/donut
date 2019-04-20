@@ -6,8 +6,11 @@ import { Screen } from "../../components/screen"
 import { color, spacing } from "../../theme"
 import { NavigationScreenProps } from "react-navigation"
 import { Button } from "../../components/button"
+import { AuthStore } from "../../models/auth-store"
+import * as Progress from "react-native-progress"
 
 export interface RegisterScreenProps extends NavigationScreenProps<{}> {
+  authStore: AuthStore
 }
 
 const ROOT: ViewStyle = {
@@ -56,19 +59,24 @@ const HEADER: ViewStyle = {
 @observer
 export class RegisterScreen extends React.Component<RegisterScreenProps, {}> {
   handleLoginPress() {
-
+    this.props.navigation.navigate("login")
   }
 
-  render () {
+  handleRegisterButtonPress() {
+    this.props.authStore.register()
+  }
+
+  render() {
     return (
       <Screen style={ROOT} preset="fixedCenter">
-        <Text style={[FONT_COLOR, HEADER]} preset="header" tx="registerScreen.header" />
+        <Text style={[FONT_COLOR, HEADER]} preset="header" tx="registerScreen.header"/>
         <TextInput style={[ROUNDED_BOX, FULL_WIDTH, CHILD, TEXT_INPUT, LIGHT_BOX]} placeholder="Email"/>
         <TextInput style={[ROUNDED_BOX, FULL_WIDTH, CHILD, TEXT_INPUT, LIGHT_BOX]} placeholder="Password"/>
         <TextInput style={[ROUNDED_BOX, FULL_WIDTH, CHILD, TEXT_INPUT, LIGHT_BOX]} placeholder="Confirm Password"/>
-        <Button style={[CHILD, FULL_WIDTH, BUTTON, ROUNDED_BOX]}>
-          <Text preset="bold" tx="registerScreen.buttonHint"/>
-        </Button>
+        {!this.props.authStore.isLoading ?
+          <Button style={[CHILD, FULL_WIDTH, BUTTON, ROUNDED_BOX]} onPress={() => this.handleRegisterButtonPress()}>
+            <Text preset="bold" tx="registerScreen.buttonHint"/>
+          </Button> : <Progress.Circle size={30} indeterminate={true}/>}}
         <Text style={{ marginTop: spacing[3] }} preset="secondary" tx="registerScreen.toLogin"
               onPress={() => this.handleLoginPress()}/>
       </Screen>

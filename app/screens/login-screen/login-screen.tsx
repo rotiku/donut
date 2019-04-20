@@ -7,7 +7,7 @@ import { color, spacing } from "../../theme"
 import { NavigationScreenProps } from "react-navigation"
 import { Button } from "../../components/button"
 import { AuthStore } from "../../models/auth-store"
-import * as Progress from 'react-native-progress';
+import * as Progress from "react-native-progress";
 
 export interface LoginScreenProps extends NavigationScreenProps<{}> {
   authStore: AuthStore
